@@ -1,56 +1,23 @@
-<nav class="navbar navbar-expand-md navbar-dark bg-primary">
-  <div class='container'>
-    <a class="navbar-brand" href="{{ route('home') }}">{{ config('app.name') }}</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTop" aria-controls="navbarTop" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+<nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
+    <div class="container px-4 px-lg-5">
+        <a class="navbar-brand" href="#page-top">{{ config('app.name') }}</a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ms-auto my-2 my-lg-0">
+                {{-- <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+                <li class="nav-item"><a class="nav-link" href="#portfolio">Portfolio</a></li> --}}
+                @auth
+                <li class="nav-item"><a class="nav-link" href="{{ route('dashboard') }}">Tableau de bord</a></li>
+                @else
+                <li class="nav-item"><a class="nav-link" href="{{ route('register') }}">S'inscrire</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ route('login') }}">Se connecter</a></li>
+                @endauth
 
-    <div class="collapse navbar-collapse" id="navbarTop">
-      <ul class="navbar-nav ml-auto">
-        <li class="nav-item {{ set_active_link('home')  }}">
-          <a class="nav-link" href="{{ route('home') }}">Accueil <span class="sr-only">(current)</span></a>
-        </li>
-        @if (Route::has('front.about.index'))
-        <li class="nav-item {{ set_active_link('front.about.index')  }}">
-          <a class="nav-link" href="{{ route('front.about.index') }}">A propos</a>
-        </li>
-        @endif
-
-        {{-- insert extensions links here --}}
-
-        @guest
-        @if (Route::has('login'))
-        <li class="nav-item">
-            <a class="nav-link" href="{{ route('login') }}">Connexion</a>
-        </li>
-        @endif
-        @if (Route::has('register'))
-        <li class="nav-item">
-            <a class="nav-link" href="{{ route('register') }}">Inscription</a>
-        </li>
-        @endif
-        @else
-        <li class="nav-item dropdown">
-            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"
-                aria-haspopup="true" aria-expanded="false" v-pre>
-                {{ Auth::user()->name }} <span class="caret"></span>
-            </a>
-            @if (Route::has('logout'))
-            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
-                                                         document.getElementById('logout-form').submit();">
-                    Déconnexion
-                </a>
-
-                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                    @csrf
-                    @honeypot
-                </form>
-            </div>
-            @endif
-        </li>
-        @endguest
-      </ul>
+                {{-- @auth('admin') --}}
+                <li class="nav-item"><a class="nav-link" href="{{ route('admin.dashboard') }}">Administration</a></li>
+                {{-- @endauth --}}
+            </ul>
+        </div>
     </div>
-  </div>
 </nav>
