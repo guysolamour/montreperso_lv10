@@ -21,8 +21,32 @@
                 </div>
                 {{-- insert sidebar links here --}}
 
+                <div class="nav-item">
+                    <a href="{{ back_route('user.index') }}">
+                        <i class="fa fa-user"></i><span>Utilisateurs</span>
+                    </a>
+                </div>
 
-                @php
+
+                <div class="nav-item has-sub">
+                    <a href="javascript:void(0)"><i class="fa fa-watch"></i><span>Montres</span></a>
+                    <div class="submenu-content">
+                        <a href="{{ route('back.watch.index') }}" class="menu-item {{ set_active_link('back.watch.index') }}">Liste</a>
+                        <a href="{{ route('back.type.index') }}" class="menu-item {{ set_active_link('') }}">Type</a>
+                        <a href="{{ route('back.form.index') }}" class="menu-item {{ set_active_link('') }}">Forme</a>
+                        <a href="{{ route('back.index.index') }}" class="menu-item {{ set_active_link('') }}">Cadre</a>
+                        <a href="{{ route('back.indicator.index') }}" class="menu-item {{ set_active_link('') }}">Aiguille</a>
+                        <a href="{{ route('back.background.index') }}" class="menu-item {{ set_active_link('') }}">Arriere Plan</a>
+                        <a href="{{ route('back.bracelet.index') }}" class="menu-item {{ set_active_link('') }}">Bracelet</a>
+                        <a href="{{ route('back.font.index') }}" class="menu-item {{ set_active_link('') }}">Police</a>
+                        <a href="{{ route('back.design.index') }}" class="menu-item {{ set_active_link('') }}">Design</a>
+                        <a href="{{ route('back.designcategory.index') }}" class="menu-item {{ set_active_link('') }}">Catégorie & Prix</a>
+                    </div>
+                </div>
+
+
+
+                {{-- @php
                 $countCommentNotifications = get_guard()->unreadNotifications->filter(fn($item) => $item->type === config('administrable.modules.comment.back.notification'))->count();
                 @endphp
                 <div class="nav-item">
@@ -35,17 +59,13 @@
                             @endif
                         </span>
                     </a>
-                </div>
+                </div> --}}
 
                 {{--  insert extensions links here  --}}
 
-                <div class="nav-item">
-                    <a href="{{ back_route('user.index') }}">
-                        <i class="fa fa-user"></i><span>Utilisateurs</span>
-                    </a>
-                </div>
+
                 <div class="nav-item has-sub">
-                    <a href="javascript:void(0)"><i class="fa fa-users"></i><span>Admins</span></a>
+                    <a href="javascript:void(0)"><i class="fa fa-users"></i><span>Administrateurs</span></a>
                     <div class="submenu-content">
                         <a href="{{ back_route(config('administrable.guard') . '.index') }}" class="menu-item {{ set_active_link(back_route_path(config('administrable.guard') . '.index')) }}">Liste</a>
                         <a href="{{ back_route(config('administrable.guard') . '.profile', get_guard()) }}" class="menu-item {{ set_active_link(back_route_path(config('administrable.guard') . '.profile')) }}">Mon profil</a>

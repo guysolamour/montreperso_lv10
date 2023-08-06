@@ -40,7 +40,7 @@
 
     </head>
     <body id="page-top">
-        @include('front.partials._header')
+        {{-- @include('front.partials._header') --}}
 
 
 
@@ -48,6 +48,7 @@
 
         @include('front.partials._footer')
 
+        <script src="{{ asset('js/vendor/jquery.min.js') }}"></script>
         <!-- Bootstrap core JS-->
         <script src="{{ asset('/vendor/template/assets/js/bootstrap.bundle.min.js') }}"></script>
         {{-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script> --}}

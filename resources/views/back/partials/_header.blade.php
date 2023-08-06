@@ -164,6 +164,79 @@
             </div>
 
             {{-- add megamenu Link here --}}
+    <!-- watch link -->
+    <div class="app-item">
+        <a href="{{ route('back.watch.index') }}">
+            <i class="fa fa-folder"></i><span>Watches</span>
+        </a>
+    </div>
+    <!-- end watch link -->
+    <!-- designcategory link -->
+    <div class="app-item">
+        <a href="{{ route('back.designcategory.index') }}">
+            <i class="fa fa-folder"></i><span>DesignCategories</span>
+        </a>
+    </div>
+    <!-- end designcategory link -->
+    
+    
+    <!-- design link -->
+    <div class="app-item">
+        <a href="{{ route('back.design.index') }}">
+            <i class="fa fa-folder"></i><span>Designs</span>
+        </a>
+    </div>
+    <!-- end design link -->
+    <!-- bracelet link -->
+    <div class="app-item">
+        <a href="{{ route('back.bracelet.index') }}">
+            <i class="fa fa-folder"></i><span>Bracelets</span>
+        </a>
+    </div>
+    <!-- end bracelet link -->
+    <!-- type link -->
+    <div class="app-item">
+        <a href="{{ route('back.type.index') }}">
+            <i class="fa fa-folder"></i><span>Types</span>
+        </a>
+    </div>
+    <!-- end type link -->
+    <!-- font link -->
+    <div class="app-item">
+        <a href="{{ route('back.font.index') }}">
+            <i class="fa fa-folder"></i><span>Fonts</span>
+        </a>
+    </div>
+    <!-- end font link -->
+    <!-- background link -->
+    <div class="app-item">
+        <a href="{{ route('back.background.index') }}">
+            <i class="fa fa-folder"></i><span>Backgrounds</span>
+        </a>
+    </div>
+    <!-- end background link -->
+    <!-- form link -->
+    <div class="app-item">
+        <a href="{{ route('back.form.index') }}">
+            <i class="fa fa-folder"></i><span>Forms</span>
+        </a>
+    </div>
+    <!-- end form link -->
+    <!-- index link -->
+    <div class="app-item">
+        <a href="{{ route('back.index.index') }}">
+            <i class="fa fa-folder"></i><span>Indices</span>
+        </a>
+    </div>
+    <!-- end index link -->
+    <!-- indicator link -->
+    <div class="app-item">
+        <a href="{{ route('back.indicator.index') }}">
+            <i class="fa fa-folder"></i><span>Indicators</span>
+        </a>
+    </div>
+    <!-- end indicator link -->
+    
 
           </div>
         </div>

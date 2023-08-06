@@ -1,0 +1,117 @@
+globals:
+  # folder: Models
+  # activate or deactivate slug editing in form globally
+  edit_slug: false
+
+  # add clone model in index page
+  clone: false
+
+  # use fillable or guarded
+  fillable: true
+
+  # How many items to generate or use boolean
+  seeder: true # 15 default value
+
+
+
+# Models definitions
+models:
+  Indicator:
+    trans: Aiguille
+    dropzone: true
+    imagemanager: { front: image }
+    fields:
+      - name: { slug: true, breadcrumb: true }
+      - description: {type: text, rules: nullable }
+
+  Form:
+    trans: Forme
+    dropzone: true
+    imagemanager: { front: image }
+    fields:
+      - name: { slug: true, breadcrumb: true }
+      - description: {type: text, rules: nullable }
+      - type_id: { type: {relation: one to many, type: simple, property: name, related: App\Models\Type}, rules: nullable }
+
+  Design:
+    trans: Design
+    fields:
+      - name: { slug: true, breadcrumb: true }
+      - description: {type: text, rules: nullable }
+      - type_id: { type: {relation: one to many, type: simple, property: name, related: App\Models\Type}, rules: nullable }
+
+  DesignCategory:
+    trans: 'Categorie design'
+    fields:
+      - name: { slug: true, breadcrumb: true }
+      - price: {type: string, rules: required|string }
+      - description: {type: text, rules: nullable }
+      - design_id: { type: {relation: one to many, type: simple, property: name, related: App\Models\Design}, rules: nullable }
+
+  Font:
+    trans: 'Police'
+    fields:
+      - name: { slug: true, breadcrumb: true }
+      - description: {type: text, rules: nullable }
+
+  Bracelet:
+    trans: 'Bracelet'
+    imagemanager: { front: image }
+    fields:
+      - name: { slug: true, breadcrumb: true }
+      - value: {type: text, rules: required|string }
+      - description: {type: text, rules: nullable }
+
+  Type:
+    trans: 'Type'
+    fields:
+      - name: { slug: true, breadcrumb: true }
+      - description: {type: text, rules: nullable }
+
+  Background:
+    trans: 'Arriere Plan'
+    imagemanager: { images: 'images' }
+    fields:
+      - name: { slug: true, breadcrumb: true }
+      - description: {type: text, rules: nullable }
+
+
+  Watch:
+    trans: Montre
+    imagemanager: { back: 'Arriere plan' }
+    fields:
+      - name: { slug: true, breadcrumb: true, trans: Nom }
+      - description: {type: text, rules: nullable, trans: Description }
+      - form_id: { type: { relation: one to many, type: simple, property: name, related: App\Models\Design }, rules: nullable, trans: Forme }
+      - index_id: { type: { relation: one to many, type: simple, property: name, related: App\Models\Index }, rules: nullable , trans: Index}
+      - index_image_id: { type: integer, rules: nullable, trans: 'Image index' }
+      - indicator_id: { type: { relation: one to many, type: simple, property: name, related: App\Models\Indicator }, rules: nullable, trans: Aiguille }
+      - brackground_id: { type: { relation: one to many, type: simple, property: name, related: App\Models\Background }, rules: nullable, trans: 'Arrière plan' }
+      - brackground_image_id: { type: integer, rules: nullable, trans: 'Arriere plan image' }
+      - bracelet_id: { type: { relation: one to many, type: simple, property: name, related: App\Models\Bracelet }, rules: nullable, trans: Bracelet }
+      - design_id: { type: { relation: one to many, type: simple, property: name, related: App\Models\Design }, rules: nullable, trans: Design }
+      - design_category_id: { type: { relation: one to many, type: simple, property: name, related: App\Models\DesignCategory }, rules: nullable, trans: Category }
+      - user_id: { type: { relation: one to many, type: simple, property: name, related: App\Models\User }, rules: nullable, trans: Auteur }
+      - text: { type: text, rules: nullable, cast: collection }
+      - background: { type: text, rules: nullable, cast: collection }
+
+
+  Index:
+    trans: cadre
+    imagemanager: { images: images }
+    fields:
+      - name: { slug: true, breadcrumb: true }
+      - description: {type: text, rules: nullable }
+      # - indexmedia_id: { type: {relation: one to many, type: simple, property: name, related: App\Models\IndexMedia}, rules: nullable }
+
+  Note:
+    imagemanager: { front: front image labe1l, back: back image label, images: images label }
+    fields:
+      - online: { type: boolean, trans: en ligne }
+      - title:
+          name: title
+          slug: true
+          breadcrumb: true
+      - description: { name: description, type: text, rules: required, tinymce: true }
+      - promotion: { type: datetime, rules: req|string, daterange: true  }
+      - delete: { type: datetime, rules: req, datepicker: true }

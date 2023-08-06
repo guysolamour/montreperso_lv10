@@ -79,4 +79,13 @@ class User extends Authenticatable implements MustVerifyEmail, HasMedia
     }
 
     // add relation methods below
+
+    // watch relation
+    public function watches()
+    {
+      return $this->hasMany(Watch::class);
+    }
+    // end watch relation
+
+
 }

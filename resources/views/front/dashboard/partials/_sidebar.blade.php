@@ -30,6 +30,29 @@
                     </a>
                 </li>
 
+
+                <li class="has-sub">
+                    <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#watch"
+                        aria-expanded="false" aria-controls="app">
+                        <i class="mdi mdi-folder-multiple-outline"></i>
+                        <span class="nav-text">Mon montres</span> <b class="caret"></b>
+                    </a>
+                    <ul class="collapse" id="watch" data-parent="#sidebar-menu">
+                        <div class="sub-menu">
+                            <li>
+                                <a class="sidenav-item-link" href="{{ route('front.user.dashboard.watch') }}">
+                                    <span class="nav-text">Liste</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="sidenav-item-link" href="">
+                                    <span class="nav-text">Ajouter une montre</span>
+                                </a>
+                            </li>
+                        </div>
+                    </ul>
+                </li>
+
                 <li class="has-sub">
                     <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#app"
                         aria-expanded="false" aria-controls="app">
@@ -52,7 +75,6 @@
                         </div>
                     </ul>
                 </li>
-
             </ul>
 
         </div>
